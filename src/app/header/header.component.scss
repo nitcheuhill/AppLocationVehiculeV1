@@ -1,0 +1,84 @@
+/* Importation de la police */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Style général */
+
+/* Style du header */
+.header {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0; /* Réduit l'espace en haut et en bas */
+  background-color: #fff;
+  width: 100%; /* Étend la barre sur toute la largeur */
+  position: fixed; /* Fixe la barre en haut de l'écran */
+  top: 0; /* Fixe au haut de la page */
+  left: 0; /* Démarre à gauche */
+  z-index: 1000; /* Assure qu'elle reste au-dessus des autres éléments */
+  
+}
+@media(max-width: 2000px){
+  .header{
+    padding: 20px 0 !important;
+  }
+  .nav a {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    padding: 5px 15px !important;
+  
+  }
+}
+
+/* Conteneur pour centrer les éléments avec marges */
+.header .container {
+  width: 100%; /* La largeur du conteneur interne est identique à celle du parent */
+  display: flex;
+  justify-content: space-between; /* Espace entre le logo et la navigation */
+  align-items: center;
+  padding: 0 10%; /* Applique une marge interne de 20% à gauche et à droite */
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.logo img {
+  max-width: 120px;
+}
+
+/* Navigation */
+.nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  margin-left: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 5px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.nav a:hover {
+  color: #555;
+}
+
+.nav a:hover,
+.nav a.active {
+  background-color: #000;
+  color: #fff;
+}

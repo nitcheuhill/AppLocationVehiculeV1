@@ -1,0 +1,93 @@
+<link href="https://fonts.googleapis.com/css?family=Material+Icons&display=swap" rel="stylesheet" />
+
+<body>
+    <div class="section-header">
+        <div class="header-content">
+            <span class="header-title">Qualité,<br>Securité,<br>Transparence.</span>
+            <div class="button-container">
+                <div class="action-button" (click)="navigateToModelPage()">
+                    <span class="button-text">Accedez à tout nos modèles</span>
+                    <span class="button-icon">keyboard_arrow_right</span>
+                </div>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="images/v6_46.png" alt="Illustration principale" class="main-image">
+            <img src="images/v6_173.png" alt="Illustration secondaire" class="secondary-image">
+        </div>
+    </div>
+
+    <div class="arrow-container">
+        <button class="arrow-button" (click)="scrollToModels()" aria-label="Scroll to models section">
+            <span class="arrow"></span>
+        </button>
+    </div>
+
+    <section class="models" id="models-section">
+        <h2>Catégories</h2>
+        <div class="models-container">
+            <div *ngFor="let model of carModels" class="model-card">
+                <img [src]="model.imageUrl" [alt]="model.alt">
+                <span class="model-label">{{ model.title }}</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Cherchez-vous<br>un modèle spécifique ?</h2>
+                <p>Laissez votre contact afin que notre équipe puisse vous recontacter !</p>
+            </div>
+
+            <form class="contact-form">
+                <div class="form-fields">
+                    <input type="text" placeholder="Modèle">
+                    <input type="text" placeholder="Nom">
+                    <input type="email" placeholder="E-mail">
+                    <input type="tel" placeholder="Número">
+                    <button type="submit">Envoyer</button>
+                </div>
+
+                <div class="form-disclaimer">
+                    <p>
+                        ☐Lors de la planification avec le MAGASIN, j'accepte de recevoir d'une manière ou d'une autre
+                        que Huang Car me contacte personnellement uniquement lors de la vente de véhicules avec le texte
+                        de modalité hybride.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <div class="weekly-highlight" >
+        <div class="highlight-header" >
+          <span class="highlight-title">Coup coeur de la semaine</span>
+        </div>
+        <div class="highlight-content">
+          <div class="highlight-image">
+            <img src="images/v53_46.png" alt="Novo Porsche Macan GTS">
+          </div>
+          <div class="highlight-description" style="background-image: url(images/v53_47.png);">
+            
+            <p class="highlight-text"><span class="highlight-subtitle">Nouveau Porsche Macan GTS.</span><br>
+                Le nouveau Macan GTS se distingue là où d'autres se perdent dans la foule. Jeune, dynamique et urbain, 
+                il est doté d'un équipement de série complet, d'éléments de design propres au modèle et, bien sûr, 
+                des performances traditionnelles de Porsche..
+            </p>
+          </div>
+        </div>
+      </div>
+      
+
+    <section class="models">
+        <h2>Dernières locations</h2>
+        <div class="models-container special">
+            <div *ngFor="let model of vehiculeSelling" class="model-card">
+                <img [src]="model.imageUrl" [alt]="model.alt">
+                <span class="model-label">{{ model.title }}</span>
+            </div>
+        </div>
+    </section>
+
+</body>

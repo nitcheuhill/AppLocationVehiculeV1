@@ -1,0 +1,188 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<button (click)="navigateToModelPage()" class="getback"><i class="fa-solid fa-chevron-left fa-beat-fade"></i><span>Retour</span></button>
+<section class="detailsModel">
+  <section class="globalInfo">
+    <div *ngIf="car" class="details-content">
+    <div class="brandmodel">
+      <h1 class="brand">{{ car.brand }}</h1>
+      <h2 class="model">{{ car.name }}</h2>
+    </div>
+      <div class="specifications">
+        <p>Annnée <span>{{ car.year }}</span></p>
+        <p>Km <span>{{ car.km }}</span></p>
+      </div>
+      <p class="price"><span>FCFA</span> {{ car.price }}</p>
+      <button class="contact-button" (click)="openModal()"><span>Réservez maintenant</span><i class="fa-solid fa-chevron-right fa-beat-fade"></i></button>
+    </div>
+    <div class="car-image">
+      <img [src]="car.modelImage" alt="{{ car.name }}" />
+    </div>
+  </section>
+</section>
+<div class="arrow-container">
+  <button class="arrow-button" (click)="scrollToModels()" aria-label="Scroll to models section">
+      <span class="arrow"></span>
+  </button>
+</div>
+<!-- Session d'inscription -->
+ <!-- Modale globale -->
+<div id="multiStepModal" class="modal" [ngClass]="{'show': isModalOpen}">
+  <div class="modal-content">
+    <button class="close-button" (click)="closeModal()">×</button>
+    
+    <!-- Étape 1: Informations personnelles -->
+    <div class="step step-1" *ngIf="currentStep === 1">
+      <h2>Informations personnelles</h2>
+      <form>
+        <label for="firstName">Prénom :</label>
+        <input type="text" id="firstName" [(ngModel)]="formData.firstName" placeholder="Votre prénom" required />
+
+        <label for="lastName">Nom :</label>
+        <input type="text" id="lastName" [(ngModel)]="formData.lastName" placeholder="Votre nom" required />
+
+        <label for="email">E-mail :</label>
+        <input type="email" id="email" [(ngModel)]="formData.email" placeholder="Votre adresse e-mail" required />
+
+        <label for="phone">Téléphone :</label>
+        <input type="tel" id="phone" [(ngModel)]="formData.phone" placeholder="Votre numéro de téléphone" required />
+      </form>
+      <button class="next-button" (click)="goToStep(2)">Suivant</button>
+    </div>
+
+    <!-- Étape 2: Informations d'identité -->
+    <div class="step step-2" *ngIf="currentStep === 2">
+      <h2>Informations d'identité</h2>
+      <form>
+        <label for="idCard">Numéro de CNI :</label>
+        <input type="text" id="idCard" [(ngModel)]="formData.idCard" placeholder="Votre numéro de CNI" required />
+
+        <label for="driverLicense">Permis de conduire :</label>
+        <input type="text" id="driverLicense" [(ngModel)]="formData.driverLicense" placeholder="Votre numéro de permis" required />
+      </form>
+      <div class="navigation-buttons">
+        <button class="prev-button" (click)="goToStep(1)">Précédent</button>
+        <button class="next-button" (click)="goToStep(3)">Suivant</button>
+      </div>
+    </div>
+
+    <!-- Étape 3: Adresse de résidence -->
+    <div class="step step-3" *ngIf="currentStep === 3">
+      <h2>Adresse de résidence</h2>
+      <form>
+        <label for="city">Ville :</label>
+        <input type="text" id="city" [(ngModel)]="formData.city" placeholder="Votre ville" required />
+
+        <label for="street">Rue/Quartier :</label>
+        <input type="text" id="street" [(ngModel)]="formData.street" placeholder="Votre quartier" required />
+      </form>
+      <div class="navigation-buttons">
+        <button class="prev-button" (click)="goToStep(2)">Précédent</button>
+        <button class="next-button" (click)="goToStep(4)">Suivant</button>
+      </div>
+    </div>
+
+    <!-- Étape 4: Détails du compte -->
+    <div class="step step-4" *ngIf="currentStep === 4">
+      <h2>Détails du compte</h2>
+      <form>
+        <label for="username">Identifiant de connexion :</label>
+        <input type="text" id="username" [(ngModel)]="formData.username" placeholder="Votre identifiant" required />
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" [(ngModel)]="formData.password" placeholder="Votre mot de passe" required />
+      </form>
+      <div class="navigation-buttons">
+        <button class="prev-button" (click)="goToStep(3)">Précédent</button>
+        <button class="submit-button" (click)="submitForm()">Envoyer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Fin d'inscription -->
+
+
+<section class="detailsModel1" id="detailsModel1">
+  <div class="sidebar">
+  <div *ngIf="car" class="brandmodel">
+    <h1 class="brand">{{ car.brand }}</h1>
+    <h2 class="model">{{ car.name }}</h2>
+  </div>
+    <ul>
+      <li [class.active]="activeSection === 'images'" (click)="setActiveSection('images')">Images</li>
+      <li [class.active]="activeSection === 'specs'" (click)="setActiveSection('specs')">Fiche technique</li>
+      <li [class.active]="activeSection === 'details'" (click)="setActiveSection('details')">Details</li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <!-- Section Imagens -->
+    <div *ngIf="activeSection === 'images'" class="imagesSection1">
+      <div class="imageContainer1">
+        <img [src]="images[currentImage]" alt="Car Image" />
+      </div>
+      <div class="pagination">
+        <button (click)="prevImage()" [disabled]="currentImage === 0">
+          <i class="fa-solid fa-chevron-left "></i>
+        </button>
+        <span>{{ currentImage + 1 }}/{{ images.length }}</span>
+        <button (click)="nextImage()" [disabled]="currentImage === images.length - 1">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Section Ficha Técnica -->
+    <div *ngIf="activeSection === 'specs'" class="specsSection">
+      <div class="specsGrid">
+        <div><strong>Motor</strong><br />2.8 4 Cilindros</div>
+        <div><strong>CV</strong><br />204CV</div>
+        <div><strong>Torque</strong><br />50,9KGFM</div>
+        <div><strong>Transmissão</strong><br />Automática de 6 Velocidades</div>
+        <div><strong>Tração</strong><br />Integral</div>
+        <div><strong>Velocidade Máxima</strong><br />180KM/H</div>
+        <div><strong>Lugares</strong><br />7</div>
+        <div><strong>Combustível</strong><br />Diesel</div>
+        <div><strong>Cor</strong><br />Branco Lunar</div>
+        <div><strong>Porta-Malas</strong><br />500L</div>
+        <div><strong>Bancos</strong><br />Couro Caramelo</div>
+      </div>
+    </div>
+
+    <!-- Section Detalhes -->
+    <div *ngIf="activeSection === 'details'" class="detailsSection">
+      <p>Faróis de LED com nivelamento automático e temporizador - Follow Me Home</p>
+      <p>Faróis de neblina dianteiros</p>
+      <p>Lanternas traseiras de LED</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="form-container">
+      <div class="form-header">
+          <h2>Cherchez-vous<br>un modèle spécifique ?</h2>
+          <p>Laissez votre contact afin que notre équipe puisse vous recontacter !</p>
+      </div>
+
+      <form class="contact-form">
+          <div class="form-fields">
+              <input type="text" placeholder="Modèle">
+              <input type="text" placeholder="Nom">
+              <input type="email" placeholder="E-mail">
+              <input type="tel" placeholder="Número">
+              <button type="submit">Envoyer</button>
+          </div>
+
+          <div class="form-disclaimer">
+              <p>
+                  ☐Lors de la planification avec le MAGASIN, j'accepte de recevoir d'une manière ou d'une autre
+                  que Huang Car me contacte personnellement uniquement lors de la vente de véhicules avec le texte
+                  de modalité hybride.
+              </p>
+          </div>
+      </form>
+  </div>
+</section>
+

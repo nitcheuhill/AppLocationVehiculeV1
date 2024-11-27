@@ -1,0 +1,135 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<h1>Nos modèles : Luxe, Confort, Elégance</h1>
+<div class="container">
+    <!-- Section du filtre -->
+    <div class="filter-and-cars">
+        <div class="filter-section">
+            <form>
+                <div class="filteroption">
+                    <div class="form-group">
+                        <label for="marca">Marque</label>
+                        <select id="marca" [(ngModel)]="filters.marca" [ngModelOptions]="{standalone:true}">
+                            <option value="">Toutes</option>
+                            <option *ngFor="let marca of marcas" [value]="marca">{{ marca }}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modelo">Modèle</label>
+                        <select id="modelo" [(ngModel)]="filters.modelo" [ngModelOptions]="{standalone:true}">
+                            <option value="">Tous</option>
+                            <option *ngFor="let modelo of modelos" [value]="modelo">{{ modelo }}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="blindado">Blindage</label>
+                        <select id="blindado" [(ngModel)]="filters.blindado" [ngModelOptions]="{standalone:true}">
+                            <option value="">Tous</option>
+                            <option value="Sim">Oui</option>
+                            <option value="Não">Non</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motorizacao">Motorisation</label>
+                        <select id="motorizacao" [(ngModel)]="filters.motorizacao" [ngModelOptions]="{standalone:true}">
+                            <option value="">Toutes</option>
+                            <option *ngFor="let motorizacao of motorizacoes" [value]="motorizacao">{{ motorizacao }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ano">Année</label>
+                    <div class="range-group">
+                        <input type="number" id="ano-min" [(ngModel)]="filters.anoMin" placeholder="2020"
+                            [ngModelOptions]="{standalone:true}" />
+                        <span> Jusqu'à </span>
+                        <input type="number" id="ano-max" [(ngModel)]="filters.anoMax" placeholder="2025"
+                            [ngModelOptions]="{standalone:true}" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="valor">Valeur</label>
+                    <div class="range-group">
+                        <input type="number" id="valor-min" [(ngModel)]="filters.valorMin" placeholder="100000"
+                            [ngModelOptions]="{standalone:true}" />
+                        <span>Jusqu'à</span>
+                        <input type="number" id="valor-max" [(ngModel)]="filters.valorMax" placeholder="4250000"
+                            [ngModelOptions]="{standalone:true}" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="quilometragem">Quilométrage</label>
+                    <div class="range-group">
+                        <input type="number" id="km-min" [(ngModel)]="filters.kmMin" placeholder="0km"
+                            [ngModelOptions]="{standalone:true}" />
+                        <span> Jusqu'à </span>
+                        <input type="number" id="km-max" [(ngModel)]="filters.kmMax" placeholder="50000km"
+                            [ngModelOptions]="{standalone:true}" />
+                    </div>
+                </div>
+
+                <button class="Vider" type="button" (click)="resetFilters()">Limpar</button>
+                <button class="Valider" type="button" class="btn-filter" (click)="applyFilters()">Filtrar</button>
+
+            </form>
+        </div>
+
+        <!-- Section des cartes voitures -->
+        <div class="cars-section">
+            <div class="car-card" *ngFor="let car of filteredCars; let i = index">
+                <img [src]="car.image" alt="{{ car.name }}" />
+                <div class="car-details">
+                    <h3>{{ car.name }}</h3>
+                    <p>{{ car.year }} | {{ car.km }} km</p>
+                    <h4><span style="font-size: 12px;color: gray;">FCFA</span> {{ car.price }}</h4>
+                    <div class="arrow-container">
+                        <button class="detailsbutton" (click)='goToDetails(car)'>
+                            <i class="fa-solid fa-chevron-right fa-beat-fade"></i>
+                        </button>
+                        <div class="car-labels">
+                            <span *ngIf="car.isBlindado" class="label">Blindado</span>
+                            <span *ngIf="car.type" class="label">{{ car.type }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<section class="contact-section">
+    <div class="form-container">
+        <div class="form-header">
+            <h2>Cherchez-vous<br>un modèle spécifique ?</h2>
+            <p>Laissez votre contact afin que notre équipe puisse vous recontacter !</p>
+        </div>
+
+        <form class="contact-form">
+            <div class="form-fields">
+                <input type="text" placeholder="Modèle">
+                <input type="text" placeholder="Nom">
+                <input type="email" placeholder="E-mail">
+                <input type="tel" placeholder="Número">
+                <button type="submit">Envoyer</button>
+            </div>
+
+            <div class="form-disclaimer">
+                <p>
+                    ☐Lors de la planification avec le MAGASIN, j'accepte de recevoir d'une manière ou d'une autre
+                    que Huang Car me contacte personnellement uniquement lors de la vente de véhicules avec le texte
+                    de modalité hybride.
+                </p>
+            </div>
+        </form>
+    </div>
+</section>

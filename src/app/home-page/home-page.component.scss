@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+body{
+    font-family: "poppins" , sans-serif;
+}
+
+/* Conteneur principal */
+.section-header {
+    width: 100%;
+    display: flex;
+    height: auto;
+    min-height: 95vh;
+    gap: 20px;
+    // background: url("images/v25_23.png") no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+/* Contenu texte et bouton */
+.header-content {
+    margin-left: 10%;
+    width: 55%;
+    // height: 493px; 
+    margin-top: 150px;
+}
+
+.header-title {
+    color: rgba(11, 11, 11, 1);
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 120px;
+    line-height: 1.1; 
+}
+
+@media (max-width : 2000px){
+    .header-title {
+        
+        font-size: 80px;
+        
+    }
+    .main-image {
+        height: 110% !important; /* Ajuste la taille de l'image au conteneur */
+        width: 200% !important;
+    }
+    .action-button {
+        
+        margin-top: 50px !important;
+    }
+    .section-header {
+
+        margin-top: 1% !important;
+    }
+    .image-container {
+        right: 10% !important;
+        margin-top: 0px !important;
+        
+    }
+   
+    
+ 
+}
+/* Bouton contenant du texte et une icône */
+.button-container {
+    width: 406px;
+    height: 60px;
+   
+}
+
+.action-button {
+    width: 360px;
+    height: 50px;
+    background-color: rgba(11, 11, 11, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 60px;
+}
+
+.button-text {
+    color: rgba(247, 247, 247, 1);
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 23px;
+   
+}
+
+.button-icon {
+    color: rgba(247, 247, 247, 1);
+    font-family: "Material Icons";
+    font-size: 25px;
+}
+
+/* Images */
+/* Conteneur des images */
+.image-container {
+    position: relative; /* Définit le contexte de positionnement */
+    width: 600px;
+    height: 493px; 
+    margin-top: 10px;
+    right: 14%;
+}
+
+/* Image principale */
+.main-image {
+    position: absolute;
+    top: 0;
+    width: 240%; /* Ajuste la taille de l'image au conteneur */
+    height: 120%; /* Ajuste la taille de l'image au conteneur */
+    object-fit: cover; /* Garde les proportions de l'image */
+    z-index: 1; /* Positionner en arrière-plan */
+}
+
+/* Image secondaire */
+.secondary-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%; /* Ajuste la taille de l'image au conteneur */
+    height: 100%; /* Ajuste la taille de l'image au conteneur */
+    // object-fit: cover; /* Garde les proportions de l'image */
+    opacity: 0.5; /* Ajoute de la transparence pour la superposition */
+    z-index: 0; /* Positionner devant */
+    
+}
+
+.arrow-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.arrow-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.arrow {
+    width: 10px;
+    height: 10px;
+    border-left: 4px solid gray;
+    border-bottom: 4px solid gray;
+    transform: rotate(-45deg);
+    display: inline-block;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: rotate(-45deg) translateY(0);
+    }
+    40% {
+        transform: rotate(-45deg) translateY(10px);
+    }
+    60% {
+        transform: rotate(-45deg) translateY(5px);
+    }
+}
+
+.arrow-button:hover .arrow {
+    animation-play-state: paused;
+}
+
+
+
+
+//
+.models {
+    padding: 2rem;
+    width: 70%;
+    margin: auto;
+    font-family: "poppins" , sans-serif;
+  
+    h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  .models-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+  .special{
+    margin-bottom: 10% !important;
+  
+  }
+  
+  @media(max-width : 2000px){
+    .model-card{
+        height: 260px !important;
+    }
+  }
+  .model-card {
+    position: relative;
+    flex: 0 1 calc(33.333% - 1rem);
+    border-radius: 20px;
+    overflow: hidden;
+    min-width: 280px;
+    height: 350px;
+    background-color: black;
+    
+    
+    @media (max-width: 768px) {
+      flex: 1 1 100%;
+    }
+  
+    img {
+      width: 100%;
+      height: 100%;
+      flex-grow: 1;
+      
+      object-fit: cover;
+    }
+  
+    .model-label {
+      position: absolute;
+      bottom: 1rem;
+      left: 1.5rem;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+  }
+  
+  .contact-form{
+    width: 100%;    
+    height: auto;
+    border: 3px rgba(0,0,0,0.1) solid;
+    border-radius:20px ;
+  }
+  
+  .contact-section {
+    padding: 2rem;
+    justify-content: center;
+    font-family: "poppins" ,sans-serif;
+    width: 70%;
+    margin: auto;
+  }
+  .form-fields{
+    margin-top: 60px;
+    width: 90%;
+    margin: 5% auto;
+  }
+  .form-header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  
+  .form-header p {
+    color: #666;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+  
+  .form-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-form input {
+    width: 16%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 18px;
+    font-style: normal;
+    font-family: "poppins",sans-serif;
+    
+  }
+  
+  @media (max-width : 2000px){
+    .contact-form input {
+        width: 14% !important;
+    }
+
+  }
+  .form-fields input:focus {
+    outline: none;
+    border-color: #333;
+  }
+  
+  .form-fields button {
+    padding: 0.8rem 2rem;
+    background: black;
+    color: gray ;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 20%;
+    font-family: 'poppins' , sans-serif;
+  }
+  
+  .form-fields button:hover {
+    background: #333;
+  }
+  
+  .form-disclaimer p {
+    color: #666;
+    font-size: 15px;
+    display: block;
+    
+  }
+  .form-disclaimer  {
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 60px;
+    
+  }
+  
+  
+  /* Conteneur principal */
+.weekly-highlight {
+    width: 70%;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    height: auto;
+  }
+  
+  /* En-tête */
+  .highlight-header {
+    margin-top: 20px;
+  }
+  
+  .highlight-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: rgba(11, 11, 11, 1);
+    text-align: left;
+  }
+  
+  /* Contenu */
+  .highlight-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+  .highlight-image {
+    width: 63%;
+    height: 50vh;
+    border-radius: 25px;
+  }
+
+  .highlight-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+
+
+  }
+  
+  .highlight-description {
+    width: 25%;
+    height: 50vh;
+    color: rgba(255, 255, 255, 1);
+    border-radius: 25px;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    padding: 0 60px;
+  }
+  
+  .highlight-subtitle {
+   
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    
+
+  }
+  
+  .highlight-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 21px;
+    font-weight: 500;
+    text-align: justify;
+    margin-top: 25%;
+  }
+  
+@media (max-width : 2000px){
+    .highlight-text , .highlight-text{
+        font-weight: 200 !important;
+        font-size: 16px !important;
+        margin-top: 20% !important;
+    }
+}
