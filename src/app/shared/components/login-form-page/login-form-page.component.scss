@@ -1,0 +1,145 @@
+/* login-form-page.component.scss */
+.modal {
+  display: none;
+  font-family: "poppins", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px 20px;
+  width: 90%;
+  max-width: 650px;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Navigation Buttons */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  font-family: 'poppins', sans-serif;
+  cursor: pointer;
+}
+
+.next-button, .submit-button, .reset-password-button, .create-account-button {
+  background: black;
+  color: white;
+}
+
+.prev-button {
+  background: gray;
+  color: white;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: gray;
+}
+
+input {
+  width: 95%;
+  margin: auto;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: gray;
+  margin-bottom: 15px;
+  font-family: 'poppins', sans-serif;
+}
+
+/* Footer buttons */
+.footer-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.additional-options {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.text-button {
+  background: none;
+  border: none;
+  color: gray;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.create-account-button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loginimg {
+  width: 30%;
+  align-items: center;
+  display: flex;
+  border-right: 3px solid black;
+}
+.yo{
+  width: 70%;
+}
+.yeah {
+  display: flex; 
+   gap: 10px;
+   
+}
+.loginimg img{
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 20%;
+  
+  
+}

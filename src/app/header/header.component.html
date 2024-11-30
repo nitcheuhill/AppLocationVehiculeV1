@@ -10,9 +10,14 @@
         <li><a  routerLink="/contact" routerLinkActive="active">Contact</a></li>
         <li><a  routerLink="/partnership" routerLinkActive="active">Partenariat</a></li>
         <li><a  routerLink="/modele" routerLinkActive="active">Nos Modèles</a></li>
+        <li><a  (click)="openModal()" routerLinkActive="active"> <i class="fa-duotone fa-solid fa-user "></i> <span>Se connecter</span></a></li>
       </ul>
     </nav>
   </div>
 </header>
-
+<!-- Ajoutez le composant modal ici -->
+<app-login-form-page 
+  [isModalOpen]="isModalOpen" 
+  (close)="closeModal()">
+</app-login-form-page>
     

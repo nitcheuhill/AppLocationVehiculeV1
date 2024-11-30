@@ -1,0 +1,147 @@
+<!-- login-form-page.component.html -->
+<!-- Modal de connexion -->
+<div class="modal" [ngClass]="{'show': isModalOpen}">
+  <div class="modal-content">
+    <button class="close-button" (click)="closeModal()">×</button>
+    
+    <!-- Vue connexion -->
+    <div *ngIf="currentView === 'login'" class="yeah" >
+      <div class="loginimg"><img src="images/touringcars.png"></div>
+     
+    <div class="yo" >
+      <form (ngSubmit)="onLogin()">
+        <h2>Connexion</h2>
+        <label for="loginUsername">Identifiant :</label>
+        <input 
+          type="text" 
+          id="loginUsername" 
+          [(ngModel)]="loginData.username" 
+          placeholder="Votre identifiant" 
+          required 
+          [ngModelOptions]="{standalone: true}"
+        />
+
+        <label for="loginPassword">Mot de passe :</label>
+        <input 
+          type="password" 
+          id="loginPassword" 
+          [(ngModel)]="loginData.password" 
+          placeholder="Votre mot de passe" 
+          required 
+          [ngModelOptions]="{standalone: true}"
+        />
+
+        <div class="footer-buttons">
+          <button type="submit" class="next-button">Se connecter</button>
+        </div>
+
+        <div class="additional-options">
+          <button type="button" class="text-button" (click)="switchView('reset')">
+            Mot de passe oublié ?
+          </button>
+          <button type="button" class="create-account-button" (click)="switchView('register')">
+            Créer un compte
+          </button>
+        </div>
+      </form>
+    </div>
+    </div>
+
+    <!-- Vue réinitialisation mot de passe -->
+    <div *ngIf="currentView === 'reset'">
+      <h2>Réinitialisation du mot de passe</h2>
+      <form (ngSubmit)="onResetPassword()">
+        <label for="resetEmail">Email :</label>
+        <input 
+          type="email" 
+          id="resetEmail" 
+          [(ngModel)]="resetEmail" 
+          placeholder="Votre adresse email" 
+          required 
+          [ngModelOptions]="{standalone: true}"
+        />
+
+        <div class="footer-buttons">
+          <button type="button" class="prev-button" (click)="switchView('login')">
+            Retour
+          </button>
+          <button type="submit" class="reset-password-button">
+            Envoyer
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Vue inscription multi-étapes -->
+    <!-- Étape 1: Informations personnelles -->
+    <div class="step step-1" *ngIf="currentView === 'register' && currentStep === 1">
+      <h2><span style="color: gray;">Création de compte : </span>Informations personnelles</h2>
+      <form>
+        <label for="firstName">Prénom :</label>
+        <input type="text" id="firstName" [(ngModel)]="formData.firstName" placeholder="Votre prénom" required [ngModelOptions]="{standalone: true}"/>
+
+        <label for="lastName">Nom :</label>
+        <input type="text" id="lastName" [(ngModel)]="formData.lastName" placeholder="Votre nom" required  [ngModelOptions]="{standalone: true}"/>
+
+        <label for="email">E-mail :</label>
+        <input type="email" id="email" [(ngModel)]="formData.email" placeholder="Votre adresse e-mail" required [ngModelOptions]="{standalone: true}"/>
+
+        <label for="phone">Téléphone :</label>
+        <input type="tel" id="phone" [(ngModel)]="formData.phone" placeholder="Votre numéro de téléphone" required [ngModelOptions]="{standalone: true}"/>
+      </form>
+      <div class="navigation-buttons">
+        <button class="prev-button" (click)="switchView('login')">Retour</button>
+        <button class="next-button" (click)="goToStep(2)">Suivant</button>
+      </div>
+    </div>
+
+    <!-- Étape 2: Informations d'identité -->
+    <div class="step step-2" *ngIf="currentView === 'register' && currentStep === 2">
+      <h2>Informations d'identité</h2>
+      <form>
+        <label for="idCard">Numéro de CNI :</label>
+        <input type="text" id="idCard" [(ngModel)]="formData.idCard" placeholder="Votre numéro de CNI" required  [ngModelOptions]="{standalone: true}"/>
+
+        <label for="driverLicense">Permis de conduire :</label>
+        <input type="text" id="driverLicense" [(ngModel)]="formData.driverLicense" placeholder="Votre numéro de permis" required  [ngModelOptions]="{standalone: true}"/>
+      </form>
+      <div class="navigation-buttons">
+        <button class="prev-button" (click)="goToStep(1)">Précédent</button>
+        <button class="next-button" (click)="goToStep(3)">Suivant</button>
+      </div>
+    </div>
+
+    <!-- Étape 3: Adresse de résidence -->
+    <div class="step step-3" *ngIf="currentView === 'register' && currentStep === 3">
+      <h2>Adresse de résidence</h2>
+      <form>
+        <label for="city">Ville :</label>
+        <input type="text" id="city" [(ngModel)]="formData.city" placeholder="Votre ville" required  [ngModelOptions]="{standalone: true}"/>
+
+        <label for="street">Rue/Quartier :</label>
+        <input type="text" id="street" [(ngModel)]="formData.street" placeholder="Votre quartier" required  [ngModelOptions]="{standalone: true}"/>
+      </form>
+      <div class="navigation-buttons">
+        <button class="prev-button" (click)="goToStep(2)">Précédent</button>
+        <button class="next-button" (click)="goToStep(4)">Suivant</button>
+      </div>
+    </div>
+
+    <!-- Étape 4: Détails du compte -->
+    <div class="step step-4" *ngIf="currentView === 'register' && currentStep === 4">
+      <h2>Détails du compte</h2>
+      <form>
+        <label for="username">Identifiant de connexion :</label>
+        <input type="text" id="username" [(ngModel)]="formData.username" placeholder="Votre identifiant" required  [ngModelOptions]="{standalone: true}"/>
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" [(ngModel)]="formData.password" placeholder="Votre mot de passe" required [ngModelOptions]="{standalone: true}" />
+      </form>
+      <div class="navigation-buttons">
+        <button class="prev-button" (click)="goToStep(3)">Précédent</button>
+        <button class="submit-button" (click)="submitForm()">Envoyer</button>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollService } from '../services/services/scroll.service';
 import { Router } from '@angular/router';
+import { FormReseachPageComponent } from '../shared/components/form-reseach-page/form-reseach-page.component';
 
 interface CarModel {
   imageUrl: string;
@@ -13,7 +14,7 @@ interface CarModel {
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormReseachPageComponent],
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })

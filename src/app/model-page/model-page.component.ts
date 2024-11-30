@@ -3,10 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { Car } from '../shared/models/car';
+import { FormReseachPageComponent } from '../shared/components/form-reseach-page/form-reseach-page.component';
 @Component({
   selector: 'app-model-page',
   standalone: true,
-  imports: [FormsModule, CommonModule,RouterModule],
+  imports: [FormsModule, CommonModule,RouterModule, FormReseachPageComponent],
   templateUrl: './model-page.component.html',
   styleUrl: './model-page.component.scss',
 })

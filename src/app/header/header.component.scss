@@ -16,7 +16,6 @@
   top: 0; /* Fixe au haut de la page */
   left: 0; /* Démarre à gauche */
   z-index: 1000; /* Assure qu'elle reste au-dessus des autres éléments */
-  
 }
 @media(max-width: 2000px){
   .header{
@@ -37,6 +36,7 @@
   justify-content: space-between; /* Espace entre le logo et la navigation */
   align-items: center;
   padding: 0 10%; /* Applique une marge interne de 20% à gauche et à droite */
+ 
 }
 
 /* Logo */
@@ -81,4 +81,8 @@
 .nav a.active {
   background-color: #000;
   color: #fff;
+}
+
+span{
+  margin-left: 5px;
 }
