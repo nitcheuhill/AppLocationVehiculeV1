@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener,ElementRef,inject } from '@angular/core';
 import { RouterModule , Router,NavigationEnd} from '@angular/router';
 import { filter } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
@@ -14,8 +14,11 @@ import { log } from 'console';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  isNavOpen = false;
   private platformId = inject(PLATFORM_ID);
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private elementRef: ElementRef
+  ) {
     if (isPlatformBrowser(this.platformId)){
       this.router.events.pipe(
         filter(event => event instanceof NavigationEnd)
@@ -29,6 +32,25 @@ export class HeaderComponent {
     }
    
   }
+    // Détecte le clic en dehors de la navigation
+    @HostListener('document:click', ['$event.target'])
+    onDocumentClick(targetElement: HTMLElement) {
+      const clickedInside = this.elementRef.nativeElement.contains(targetElement);
+      if (!clickedInside && this.isNavOpen) {
+        this.closeNav();
+      }
+    }
+
+    
+  toggleNav() {
+    this.isNavOpen = !this.isNavOpen;
+  }
+
+  // Ferme la navbar
+  closeNav() {
+    this.isNavOpen = false;
+  }
+
   isModalOpen = false;
   openModal(): void {
     this.isModalOpen = true;

@@ -5,179 +5,287 @@ body{
     font-family: "poppins" , sans-serif;
 }
 
-/* Conteneur principal */
+/* Base styles */
 .section-header {
-    width: 100%;
-    display: flex;
-    height: auto;
-    min-height: 95vh;
-    gap: 20px;
-    // background: url("images/v25_23.png") no-repeat center center;
-    background-size: cover;
-    overflow: hidden;
-    align-items: center;
-    margin-bottom: 10px;
-    margin-top: 0;
+  width: 100%;
+  display: flex;
+  min-height: 95vh;
+  gap: 20px;
+  background-size: cover;
+  overflow: hidden;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 0;
 }
 
-/* Contenu texte et bouton */
 .header-content {
-    margin-left: 10%;
-    width: 55%;
-    // height: 493px; 
-    margin-top: 150px;
+  margin-left: 10%;
+  width: 55%;
+  margin-top: 150px;
 }
 
 .header-title {
-    color: rgba(11, 11, 11, 1);
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    font-size: 120px;
-    line-height: 1.1; 
+  color: rgba(11, 11, 11, 1);
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 100px !important;
+  line-height: 1.1;
 }
 
-@media (max-width : 2000px){
-    .header-title {
-        
-        font-size: 80px;
-        
-    }
-    .main-image {
-        height: 110% !important; /* Ajuste la taille de l'image au conteneur */
-        width: 200% !important;
-    }
-    .action-button {
-        
-        margin-top: 50px !important;
-    }
-    .section-header {
-
-        margin-top: 1% !important;
-    }
-    .image-container {
-        right: 10% !important;
-        margin-top: 0px !important;
-        
-    }
-   
-    
- 
+/* Mobile image is hidden by default on desktop */
+.mobile-image {
+  display: none;
 }
-/* Bouton contenant du texte et une icône */
+
+/* Desktop image container */
+.desktop-image {
+  position: relative;
+  width: 550px;
+  height: 490px;
+  // margin-top: 5px;
+  right: 14%;
+}
+
+.main-image {
+  position: absolute;
+  top: 0;
+  width: 240%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.secondary-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  opacity: 0.5;
+  z-index: 0;
+}
+
 .button-container {
-    width: 406px;
-    height: 60px;
-   
+  width: 406px;
+  height: 60px;
 }
 
 .action-button {
-    width: 360px;
-    height: 50px;
-    background-color: rgba(11, 11, 11, 1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    border-radius: 25px;
-    cursor: pointer;
-    margin-top: 60px;
+  width: 360px;
+  height: 50px;
+  background-color: rgba(11, 11, 11, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 60px;
 }
 
 .button-text {
-    color: rgba(247, 247, 247, 1);
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 23px;
-   
+  color: rgba(247, 247, 247, 1);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 23px;
 }
 
 .button-icon {
-    color: rgba(247, 247, 247, 1);
-    font-family: "Material Icons";
-    font-size: 25px;
+  color: rgba(247, 247, 247, 1);
+  font-family: "Material Icons";
+  font-size: 25px;
 }
 
-/* Images */
-/* Conteneur des images */
-.image-container {
-    position: relative; /* Définit le contexte de positionnement */
-    width: 600px;
-    height: 493px; 
-    margin-top: 10px;
-    right: 14%;
-}
-
-/* Image principale */
-.main-image {
-    position: absolute;
-    top: 0;
-    width: 240%; /* Ajuste la taille de l'image au conteneur */
-    height: 120%; /* Ajuste la taille de l'image au conteneur */
-    object-fit: cover; /* Garde les proportions de l'image */
-    z-index: 1; /* Positionner en arrière-plan */
-}
-
-/* Image secondaire */
-.secondary-image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%; /* Ajuste la taille de l'image au conteneur */
-    height: 100%; /* Ajuste la taille de l'image au conteneur */
-    // object-fit: cover; /* Garde les proportions de l'image */
-    opacity: 0.5; /* Ajoute de la transparence pour la superposition */
-    z-index: 0; /* Positionner devant */
-    
-}
-
-.arrow-container {
+@media (max-width: 2000px) {
+  .header-title {
+    font-size: 75px !important;
+    line-height: 1.2;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
+    display: block ;
+}
+}
+/* Mobile styles */
+@media (max-width: 1000px) {
+  .section-header {
+      flex-direction: column;
+      min-height: auto;
+      gap: 0;
+      margin-top: 20px;
+      height: 75vh;
+      align-items: center;
+      display: flex;
+  }
+
+  .header-content {
+      margin: initial !important;
+      width: 100%;
+  }
+
+  .text-section {
+      width: 100%;
+      text-align: center;
+      margin-top: 10% !important;
+  }
+
+  .header-title {
+      font-size: 70px !important;
+  }
+
+  /* Show mobile image, hide desktop image */
+  .mobile-image {
+      display: block;
+      width: 100% ;
+      height: 200px;
+      margin: 20px 0;
+      // position: relative;
+      overflow: hidden;
+  }
+
+ .main-image {
+      position: relative;
+      width: 110%;
+      height: 110%;
+      object-fit: contain;
+      top: auto;
+  }
+
+  .desktop-image {
+      display: none;
+  }
+
+  .button-container {
+      width: 100%;
+      height: 50px;
+      margin-top: 20px;
+  }
+
+  .action-button {
+      width: 100%;
+      margin-top: 0;
+      height: 45px;
+  }
+
+  .button-text {
+      font-size: 18px;
+  }
+  .mobile-image {
+    display: block;
+    width: 100% !important;
+    height: 300px !important;
+    margin: initial ;
+    position: relative;
+    overflow: hidden;
+}
+.main-image{
+  margin-left: 10% !important;
 }
 
-.arrow-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    transition: transform 0.3s ease;
+.main-image {
+    position: relative;
+    width: 90% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    top: auto;
+}
+.button-container {
+  width: 85% !important;
+  margin: auto !important;
+  margin-top: 40px !important;
+  margin-bottom: 10px !important;
+ 
+}
+.action-button {
+  justify-content: space-between;
+  border-radius: 25px !important;
+  cursor: pointer;
+  text-align: center !important;
+  padding: 5px 15px !important;
+  height: 35px;
+  width: 50% !important;
+  margin: auto !important;
+
+}
 }
 
-.arrow {
-    width: 10px;
-    height: 10px;
-    border-left: 4px solid gray;
-    border-bottom: 4px solid gray;
-    transform: rotate(-45deg);
-    display: inline-block;
-    animation: bounce 2s infinite;
+/* Smaller mobile devices */
+@media (max-width: 500px) {
+  .section-header {
+    margin-top: 20px !important;
+    min-height: 70vh !important;
+  
+  }
+  .text-section {
+    margin-top: 35px !important;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  }
+.header-content {
+  // margin-left: 5%;
+  width: 100%;
+  margin-top: 80px !important;
+
+}
+  .section-header {
+    height: 85vh !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  .header-title {
+      font-size: 2.7rem !important;
+      line-height: 1.2 !important;
+  }
+
+  
+
+  .button-text {
+      font-size: 15px !important;
+  }
+  .mobile-image {
+    display: block;
+    width: 100% !important;
+    height: 215px !important;
+    margin: initial ;
+    position: relative;
+    overflow: hidden;
+}
+.main-image{
+  margin-left: 10% !important;
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: rotate(-45deg) translateY(0);
-    }
-    40% {
-        transform: rotate(-45deg) translateY(10px);
-    }
-    60% {
-        transform: rotate(-45deg) translateY(5px);
-    }
+.main-image {
+    position: relative;
+    width: 170% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    top: auto;
 }
-
-.arrow-button:hover .arrow {
-    animation-play-state: paused;
+.button-container {
+  width: 85% !important;
+  margin: auto !important;
+  margin-top: 40px !important;
+  margin-bottom: 10px !important;
+ 
 }
+.action-button {
+  justify-content: space-between;
+  border-radius: 25px !important;
+  cursor: pointer;
+  text-align: center !important;
+  padding: 5px 15px !important;
+  height: 35px;
+  width: 85% !important;
+  margin: auto !important;
 
-
+}
+}
+//responsive
 
 
 //
 .models {
-    padding: 2rem;
-    width: 70%;
+    // padding: 2rem;
+    width: 75% !important;
     margin: auto;
     font-family: "poppins" , sans-serif;
   
@@ -188,15 +296,12 @@ body{
     }
   }
   
+  
   .models-container {
     display: flex;
-    flex-wrap: wrap;
     gap: 1rem;
     justify-content: space-between;
-    
-    @media (max-width: 768px) {
-      flex-direction: column;
-    }
+    overflow-x: auto;
   }
   .special{
     margin-bottom: 10% !important;
@@ -208,6 +313,39 @@ body{
         height: 260px !important;
     }
   }
+  @media(max-width : 900px){
+    .model-card{
+        height: 210px !important;
+    }
+  }
+   
+  @media (max-width: 810px) {
+    h2 {
+      text-align: center;
+      font-size: 1.8rem !important;
+      margin-bottom: 1rem !important;
+      }
+  }
+  @media (max-width: 1200px) {
+    .models {
+      // padding: 2rem !important;
+      width: 100% !important;
+    }
+   
+    .models-container {
+      overflow-y: auto !important;
+
+    }
+    h2 {
+      font-size: 1.8rem !important;
+      margin-bottom: 1rem !important;
+      width: 90%;
+      margin: auto;
+      }
+
+  }
+  
+
   .model-card {
     position: relative;
     flex: 0 1 calc(33.333% - 1rem);
@@ -241,9 +379,54 @@ body{
     }
   }
   
+  .arrow-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.arrow-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.3s ease;
+}
+
+.arrow-button:hover {
+    transform: translateY(5px);
+}
+
+.arrow {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-right: 3px solid #000;
+    border-bottom: 3px solid #000;
+    transform: rotate(45deg);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: rotate(45deg) translateY(0);
+    }
+    40% {
+        transform: rotate(45deg) translateY(-10px);
+    }
+    60% {
+        transform: rotate(45deg) translateY(-5px);
+    }
+}
+
+/* Version sombre optionnelle */
+.dark .arrow {
+    border-color: #fff;
+}
+
   /* Conteneur principal */
 .weekly-highlight {
-    width: 70%;
+    width: 75%;
     margin: auto;
     background-repeat: no-repeat;
     background-position: center;
@@ -254,7 +437,79 @@ body{
     height: auto;
   }
   
+  @media (max-width : 1200px){
+    .weekly-highlight{
+      width: 90% !important;
+      margin: auto !important;
+    }
+    .highlight-title{
+      font-size: 1.8rem !important;
+      font-weight: 700 !important;
+    }
+    .highlight-header {
+      margin-bottom: 1rem !important;
+    }
+    .highlight-content {
+      flex-direction: column;
+      gap: 15px !important;
+    }
+    .highlight-image {
+      width: 100% !important;
+      height: 35vh !important;
+  
+    }
+    .highlight-text{
+      font-size: 16px !important;
+    }
+    .highlight-description {
+      width: 100% !important;
+      box-sizing: border-box !important;
+      padding: 30px !important;
+      height: auto !important;
+    
+    }
+    
+}
   /* En-tête */
+@media(max-width : 815px){
+  .highlight-header {
+    text-align: center;
+    line-height: 1.2;
+  }
+  .highlight-title{
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+
+  }
+  .weekly-highlight{
+    width: 90% !important;
+    margin: auto !important;
+  }
+  .highlight-content {
+    flex-direction: column;
+    gap: 15px !important;
+  }
+  .highlight-image {
+    width: 100% !important;
+    height: 27vh !important;
+
+  }
+  .highlight-description {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 20px !important;
+  
+  }
+  .highlight-subtitle{
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+  }
+  .highlight-text{
+    font-size: 12px !important;
+  }
+}
+   
   .highlight-header {
     margin-top: 20px;
   }
@@ -313,13 +568,13 @@ body{
     font-size: 21px;
     font-weight: 500;
     text-align: justify;
-    margin-top: 25%;
+
   }
   
-@media (max-width : 2000px){
-    .highlight-text , .highlight-text{
-        font-weight: 200 !important;
-        font-size: 16px !important;
-        margin-top: 20% !important;
+
+     .highlight-description{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        line-height: 1.5;
     }
-}

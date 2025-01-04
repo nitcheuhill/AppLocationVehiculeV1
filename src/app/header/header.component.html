@@ -1,16 +1,32 @@
 <header class="header">
   <div class="container">
+    <!-- Logo -->
     <div class="logo">
-      <img src="images/touringcars.png" alt="Logo">
+      <img class="logo1" src="images/Logo-TC.png" alt="Logo">
+      <img class="logo2" src="images/Calque_1.png" alt="Logo">
     </div>
-    <nav class="nav">
+
+    <!-- Bouton burger -->
+    <button class="burger-menu" [class.open]="isNavOpen" (click)="toggleNav()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="nav" [class.open]="isNavOpen">
       <ul>
-        <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a></li>
-        <li><a routerLink="/about" routerLinkActive="active">À propos</a></li>
-        <li><a  routerLink="/contact" routerLinkActive="active">Contact</a></li>
-        <li><a  routerLink="/partnership" routerLinkActive="active">Partenariat</a></li>
-        <li><a  routerLink="/modele" routerLinkActive="active">Nos Modèles</a></li>
-        <li><a  (click)="openModal()" routerLinkActive="active"> <i class="fa-duotone fa-solid fa-user "></i> <span>Se connecter</span></a></li>
+        <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeNav()">Accueil</a></li>
+        <li><a routerLink="/about" routerLinkActive="active" (click)="closeNav()">À propos</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" (click)="closeNav()">Contact</a></li>
+        <li><a routerLink="/partnership" routerLinkActive="active" (click)="closeNav()">Partenariat</a></li>
+        <li><a routerLink="/modele" routerLinkActive="active" (click)="closeNav()">Nos Modèles</a></li>
+        <li>
+          <a (click)="openModal(); closeNav()"> 
+            <i class="fa-duotone fa-solid fa-user"></i> 
+            <span>Se connecter</span>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>

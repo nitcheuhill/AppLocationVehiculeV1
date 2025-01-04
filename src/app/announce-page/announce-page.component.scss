@@ -6,7 +6,38 @@
     margin-top: 8%;
     font-family: "poppins" , sans-serif;
   }
+  @media(max-width : 767px) {
+    .form-container{
+        width: 90% !important;
+        margin-top: 15%!important;
+    }
+    h1 {
+      font-size: 25px !important;
+      margin-bottom: 5px !important;
+    }
+    .file-upload-container{
+      flex-direction: column;
+    }
+    button {
+      width: 100% !important;
+      margin: auto !important;
+    }
+    h2 {
+      margin-bottom: 8px !important;
+    }
+    .form-group {
+      margin-bottom: 10px !important;
+      margin-top: 20px !important;
+    }
+    .file-upload-button{
+      width: 70% !important;
+      text-align: center !important;
+    }
   
+    
+
+    
+  }
   h1 {
     text-align: left;
     font-size: 35px;

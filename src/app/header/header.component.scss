@@ -1,52 +1,48 @@
-/* Importation de la police */
+/* Importation police */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 /* Style général */
-
-/* Style du header */
-.header {
+body {
+  margin: 0;
   font-family: 'Poppins', sans-serif;
+}
+.logo2 {
+  display: none;
+}
+
+@media (max-width : 800px){
+  .logo1 {
+    display: none;
+  }
+  .logo2 {
+    display: block;
+  }
+  
+}
+
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 0; /* Réduit l'espace en haut et en bas */
   background-color: #fff;
-  width: 100%; /* Étend la barre sur toute la largeur */
-  position: fixed; /* Fixe la barre en haut de l'écran */
-  top: 0; /* Fixe au haut de la page */
-  left: 0; /* Démarre à gauche */
-  z-index: 1000; /* Assure qu'elle reste au-dessus des autres éléments */
-}
-@media(max-width: 2000px){
-  .header{
-    padding: 20px 0 !important;
-  }
-  .nav a {
-    font-size: 16px !important;
-    font-weight: 500 !important;
-    padding: 5px 15px !important;
-  
-  }
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
 }
 
-/* Conteneur pour centrer les éléments avec marges */
 .header .container {
-  width: 100%; /* La largeur du conteneur interne est identique à celle du parent */
   display: flex;
-  justify-content: space-between; /* Espace entre le logo et la navigation */
+  justify-content: space-between;
   align-items: center;
-  padding: 0 10%; /* Applique une marge interne de 20% à gauche et à droite */
- 
+  width: 100%;
+  padding: 0 10%;
 }
 
 /* Logo */
-.logo {
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-  font-weight: 500;
-}
-
 .logo img {
   max-width: 120px;
 }
@@ -66,23 +62,119 @@
 .nav a {
   text-decoration: none;
   color: #000;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   padding: 5px 15px;
-  border-radius: 20px;
   transition: all 0.3s ease;
-}
-
-.nav a:hover {
-  color: #555;
 }
 
 .nav a:hover,
 .nav a.active {
   background-color: #000;
   color: #fff;
+  border-radius: 20px;
 }
 
-span{
-  margin-left: 5px;
+/* Bouton burger */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 10px;
 }
+
+.burger-menu span {
+  background-color: #000;
+  display: block;
+  height: 3px;
+  width: 25px;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+.fa-duotone{
+  margin-right: 5px;
+}
+/* Responsive pour tablette et mobile */
+@media (max-width: 1200px) {
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.3s ease;
+  }
+
+  .nav.open {
+    right: 0;
+  }
+
+  .nav ul {
+    flex-direction: column;
+  }
+
+  .nav li {
+    margin: 20px 0;
+  }
+
+  .burger-menu {
+    display: flex;
+  }
+  .nav a {
+    padding: 5px 25px!important;
+  }
+  
+ 
+
+  
+}
+
+/* Animation du bouton burger pour la croix */
+.burger-menu.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 8px;
+  position: relative;
+}
+
+.burger-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: -8px;
+  position: relative;
+}
+@media (max-width :  1200px){
+  .burger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .burger-menu span {
+    background-color: #000;
+    display: block;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+  }
+  
+  
+  
+}
+

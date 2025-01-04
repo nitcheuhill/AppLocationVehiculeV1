@@ -6,6 +6,20 @@
     display: flex;
     gap: 40px;
 }
+@media (max-width: 1200px) {
+    .block1 {
+        flex-direction: column;
+        margin-top: 15%;
+    }
+    .blockImage{
+        height: 10vh;
+    }
+    
+    .blockImage img{
+        width: 50%;
+      
+    }
+}
 .blockDescription, .blockImage{
     background-color:#F4F4F4 ;
     border-radius: 20px;
@@ -107,4 +121,25 @@ li:before {
         grid-template-columns: 1fr;
         width: 90%;
     }
+    .block1 {
+       width: 90%;
+       margin-top: 30%;
+    }
+    .blockImage{
+        height: 40vh;
+    }
+    .blockDescription {
+    
+        padding: 30px;
+        box-sizing: border-box;
+    }
+    
+.infoabout p{
+    line-height: 2;
+    text-align: justify;
+    font-weight: 500;
+    font-size: 14  px;
+}
+
+    
 }

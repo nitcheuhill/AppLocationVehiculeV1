@@ -1,99 +1,159 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-
-.contact-form{
-    width: 100%;    
+.contact-form {
+    width: 100%;
     height: auto;
     border: 3px rgba(0,0,0,0.1) solid;
-    border-radius:20px ;
-   
-  }
-  
-  .contact-section {
+    border-radius: 20px;
+}
+
+.contact-section {
     padding: 2rem;
     justify-content: center;
-    font-family: "poppins" ,sans-serif;
-    width: 70%;
+    font-family: "Poppins", sans-serif;
+    width: 75%;
     margin: auto;
     margin-bottom: 5%;
-  }
-  .form-fields{
-    margin-top: 60px;
+}
+
+.form-fields {
     width: 90%;
     margin: 5% auto;
-  }
-  .form-header h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.form-header h2 {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
     line-height: 1.2;
-  }
-  
-  .form-header p {
+}
+
+.form-header p {
     color: #666;
     font-size: 18px;
     font-weight: 400;
     margin-bottom: 2rem;
-  }
-  
-  .form-fields {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .contact-form input {
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"] {
     width: 16%;
     padding: 0.8rem;
     border: 1px solid #ddd;
     border-radius: 10px;
-    font-size: 18px;
-    font-style: normal;
-    font-family: "poppins",sans-serif;
-    
-  }
-  
-  @media (max-width : 2000px){
-    .contact-form input {
-        width: 14% !important;
-    }
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+}
 
-  }
-  .form-fields input:focus {
-    outline: none;
-    border-color: #333;
-  }
-  
-  .form-fields button {
+.form-fields button {
     padding: 0.8rem 2rem;
     background: black;
-    color: gray ;
+    color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
-    width: 20%;
-    font-family: 'poppins' , sans-serif;
-  }
-  
-  .form-fields button:hover {
+    width: 16%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-fields button:hover {
     background: #333;
-  }
-  
-  .form-disclaimer p {
-    color: #666;
-    font-size: 15px;
-    display: block;
-    
-  }
-  .form-disclaimer  {
+}
+
+.form-disclaimer {
     width: 90%;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 60px;
+    margin: 30px auto 60px auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.form-disclaimer input[type="checkbox"] {
+    margin-top: 3px;
+}
+
+.form-disclaimer p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .contact-section {
+        width: 90%;
+    }
     
-  }
-  
-  
+    .form-fields {
+        flex-wrap: wrap;
+    }
+    
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .form-fields button {
+        width: calc(50% - 1rem);
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .form-fields button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        width: 95%;
+        padding: 1rem;
+        margin: auto;
+    }
+
+    .form-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-header p {
+        font-size: 16px;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .form-fields button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        width: 90%;
+        // padding: 1rem 0.5rem;
+        margin: auto;
+    }
+
+    .form-fields {
+        gap: 0.8rem;
+    }
+
+    .form-header h2 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .form-header p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .form-disclaimer p {
+        font-size: 12px;
+    }
+}

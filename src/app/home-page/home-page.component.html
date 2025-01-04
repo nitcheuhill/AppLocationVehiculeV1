@@ -1,20 +1,27 @@
 <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=swap" rel="stylesheet" />
 
 <body>
-    <div class="section-header">
-        <div class="header-content">
-            <span class="header-title">Qualité,<br>Securité,<br>Transparence.</span>
-            <div class="button-container">
-                <div class="action-button" (click)="navigateToModelPage()">
-                    <span class="button-text">Accedez à tout nos modèles</span>
-                    <span class="button-icon">keyboard_arrow_right</span>
-                </div>
+    <div class="section-header">         
+        <div class="header-content">             
+            <div class="text-section">
+                <span class="header-title">Qualité,<br>Securité,<br>Transparence.</span>
             </div>
-        </div>
-        <div class="image-container">
+            
+            <div class="mobile-image">
+                <img src="images/v6_46.png" alt="Illustration principale" class="main-image">
+            </div>
+                
+            <div class="button-container">                 
+                <div class="action-button" (click)="navigateToModelPage()">                     
+                    <span class="button-text">Accedez à tout nos modèles</span>                     
+                    <span class="button-icon">keyboard_arrow_right</span>                 
+                </div>             
+            </div>         
+        </div>         
+        <div class="desktop-image">             
             <img src="images/v6_46.png" alt="Illustration principale" class="main-image">
             <img src="images/v6_173.png" alt="Illustration secondaire" class="secondary-image">
-        </div>
+        </div>     
     </div>
 
     <div class="arrow-container">
@@ -33,7 +40,7 @@
         </div>
     </section>
     <app-form-reseach-page></app-form-reseach-page>
-    <div class="weekly-highlight" >
+    <div class="weekly-highlight"  >
         <div class="highlight-header" >
           <span class="highlight-title">Coup coeur de la semaine</span>
         </div>

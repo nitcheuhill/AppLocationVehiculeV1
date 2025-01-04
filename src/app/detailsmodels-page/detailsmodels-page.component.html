@@ -12,7 +12,10 @@
         <p>Km <span>{{ car.km }}</span></p>
       </div>
       <p class="price"><span>Mensualité : FCFA</span> {{ car.price }}</p>
+    <div class="button-action">
+      <button class="view3D"  (click)="open3DModal()"><span>Voir le modèle 3D</span><i class="fa-solid fa-eye "></i></button>
       <button class="contact-button" (click)="openModal()"><span>Réservez maintenant</span><i class="fa-solid fa-chevron-right fa-beat-fade"></i></button>
+    </div>
     </div>
     <div class="car-image">
       <img [src]="car?.modelImage" alt="{{ car?.name }}" />
@@ -31,6 +34,11 @@
  [isModalOpen]="isModalOpen" 
  (close)="closeModal()">
 </app-login-form-page>
+
+ <app-model3-dpage 
+ [is3DModalOpen]="is3DModalOpen" 
+ (close)="close3DModal()">
+</app-model3-dpage>
 
 <!-- Fin d'inscription -->
 

@@ -1,0 +1,10 @@
+<!-- login-form-page.component.html -->
+<!-- Modal de connexion -->
+<div class="modal" [ngClass]="{'show': is3DModalOpen}">
+    <div class="modal-content">
+      <button class="close-button" (click)="close3DModal()">×</button>
+      <div class="canvas-container">
+        <canvas #renderCanvas></canvas>
+      </div>
+    </div>
+  </div>

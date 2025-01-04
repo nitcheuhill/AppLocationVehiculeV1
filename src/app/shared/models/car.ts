@@ -11,5 +11,6 @@ export interface Car {
     modelImageDetails2: string; // Chemin de la seconde image détaillée
     isBlindado: boolean | null; // Indique si la voiture est blindée (true/false/null si non spécifié)
     type: string | null; // Type de carburant ou propulsion (ex. "Hybride", "Electrique", "Gasoil", ou null si non spécifié)
+    model3D : string;
   }
   

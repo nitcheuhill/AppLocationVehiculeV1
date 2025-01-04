@@ -8,11 +8,12 @@ import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 import { FormReseachPageComponent } from '../shared/components/form-reseach-page/form-reseach-page.component';
 import { LoginFormPageComponent } from '../shared/components/login-form-page/login-form-page.component';
+import { Model3DpageComponent } from '../shared/components/model3-dpage/model3-dpage.component';
 
 @Component({
   selector: 'app-detailsmodels-page',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, FormReseachPageComponent,LoginFormPageComponent],
+  imports: [CommonModule, RouterModule, FormsModule, FormReseachPageComponent,LoginFormPageComponent,Model3DpageComponent],
   templateUrl: './detailsmodels-page.component.html',
   styleUrl: './detailsmodels-page.component.scss'
 })
@@ -42,6 +43,16 @@ export class DetailsmodelsPageComponent implements OnInit {
 
   closeModal(): void {
     this.isModalOpen = false;
+  }
+
+   is3DModalOpen = false;
+  open3DModal(): void {
+    this.is3DModalOpen = true;
+    console.log('3D modal is open');
+  }
+
+  close3DModal(): void {
+    this.is3DModalOpen = false;
   }
 
  

@@ -22,19 +22,46 @@
     gap: 10px;
   }
   
+  @media (max-width : 800px){
+    .imgLogo , 
+    .footer-column p,
+    .footer-column h3,
+    .footer-column li{
+    text-align: center;
+    line-height: 1.3;
+    }
+    .imgLogo {
+      margin-bottom: 10px;
+
+    }
+    .footer-social-icons{
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+      padding: 5px 10px;
+    }
+    .form {
+      display: flex;
+    }
+    .footer-bottom {
+      margin-top: 20px;
+    }
+
+  }
   .footer-column {
     flex: 1;
     min-width: 250px;
   }
   
   .footer-logo img {
-    max-width: 120px;
+    max-width: 150px;
   }
   
   .footer-logo p {
     margin-top: 10px;
     font-size: 14px;
     color: #555;
+    font-weight: 500;
   }
   
   .footer-social-icons {
