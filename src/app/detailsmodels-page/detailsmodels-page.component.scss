@@ -22,6 +22,148 @@
 
   }
   
+@media(max-width : 1200px){
+  .getback {
+    margin-top: 12%;
+  }
+  .detailsModel{
+    height: 78vh;
+  }
+ 
+  .contact-button,.view3D { 
+    padding: 0.8rem 0.8rem !important;
+    font-size: 14px !important;
+    border-radius: 20px;
+  }
+  .detailsModel1{
+    flex-direction: column;
+  }
+  .sidebar ul {
+    display: flex; /* Active le mode flexbox */
+    flex-direction: row; /* Les éléments (li) s'alignent horizontalement */
+    justify-content: space-around; /* Espace entre les éléments */
+    align-items: center; /* Centre verticalement les éléments si nécessaire */
+    list-style: none; /* Supprime les puces */
+  }
+  
+  .sidebar ul li {
+    padding: 10px 15px; /* Ajoute un espacement autour des éléments */
+    cursor: pointer; /* Change le curseur au survol */
+    transition: background-color 0.3s ease; /* Animation fluide pour l'effet au survol */
+    white-space: nowrap;
+  }
+  .sidebar{
+    width: 90%;
+    margin: auto;
+  }
+  .brandmodel {
+    h1 , h2{
+      white-space: nowrap;
+    }
+  }
+  .specsGrid , .detailsSection{
+    width: 80% !important;
+    margin: auto !important;
+  }
+  
+  
+}
+@media(max-width : 810px){
+  .getback {
+    margin-top: 30% ;
+  }
+  .detailsModel{
+    height: 70vh;
+  }
+ 
+  .contact-button,.view3D { 
+    padding: 0.5rem 0.5rem !important;
+    font-size: 11px !important;
+    border-radius: 20px;
+  }
+  .detailsModel1{
+    flex-direction: column;
+  }
+  .sidebar ul {
+    display: flex; /* Active le mode flexbox */
+    flex-direction: row; /* Les éléments (li) s'alignent horizontalement */
+    justify-content: space-around; /* Espace entre les éléments */
+    align-items: center; /* Centre verticalement les éléments si nécessaire */
+    list-style: none; /* Supprime les puces */
+  }
+  .price {
+    font-size: 16px !important;
+  }
+  .sidebar ul li {
+    padding: 10px 8px; /* Ajoute un espacement autour des éléments */
+    cursor: pointer; /* Change le curseur au survol */
+    transition: background-color 0.3s ease; /* Animation fluide pour l'effet au survol */
+    white-space: nowrap;
+  }
+  .sidebar{
+    width: 90%;
+    margin: auto;
+  }
+  .brandmodel {
+    h1 , h2{
+      white-space: nowrap;
+      font-size: 22px;
+    }
+    .specifications{
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.7rem;
+
+    }
+  }
+  .specsGrid , .detailsSection{
+    width: 80% !important;
+    margin: auto !important;
+  }
+  .detailsSection{
+    padding: 30px 20px !important;
+  }
+  .car-image-mobile {
+    display: block !important;
+  }
+  .car-image{
+    display:none !important;
+  }
+  .specsGrid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important; 
+    font-size: 1rem !important; /* Optionnel : ajuster la taille du texte pour les petits écrans */
+    padding: 20px !important; /* Réduire l'espace si nécessaire */
+  }
+  
+}
+.specsGrid strong{
+  color:gray ;
+}
+.car-image-mobile {
+  flex: 1;
+  display: none;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.car-image-mobile img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+  .car-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .car-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
   .globalInfo {
     display: flex;
     align-items: center;
@@ -101,18 +243,7 @@
     display: flex;
     gap: 10px;
   }
-  .car-image {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-  
-  .car-image img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
+
   
   
 .arrow-container {

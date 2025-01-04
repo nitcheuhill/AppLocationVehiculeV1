@@ -15,7 +15,12 @@
   .modal.show {
     display: flex; /* La modale devient visible */
   }
-  
+  @media(max-width : 600px){
+    .modal-content{
+      width: 80% !important;
+      min-height: 300px !important;
+    }
+  }
   .modal-content {
     background: #fff;
     border-radius: 10px;
