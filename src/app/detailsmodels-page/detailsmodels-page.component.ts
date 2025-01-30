@@ -96,14 +96,18 @@ export class DetailsmodelsPageComponent implements OnInit {
   private getCarFromStorage(): Car | null {
     if (isPlatformBrowser(this.platformId)) {
       try {
-        const carJson = localStorage.getItem('car');
-        if (!carJson) {
+        if (typeof localStorage === 'undefined') {
+          console.warn('localStorage is not supported in this environment');
           return null;
         }
-        const parsedCar = JSON.parse(carJson) as Car;
-        return parsedCar;
+        const carJson = localStorage.getItem('car');
+        if (!carJson) {
+          console.info('No car found in localStorage');
+          return null;
+        }
+        return JSON.parse(carJson) as Car;
       } catch (error) {
-        console.error('Error parsing car data:', error);
+        console.error('Error parsing car data from localStorage:', error);
         return null;
       }
     } else {
@@ -111,7 +115,7 @@ export class DetailsmodelsPageComponent implements OnInit {
       return null;
     }
   }
-
+  
   private extractCarImages(car: Car): string[] {
     const images: string[] = [];
     if (car?.modelImageDetails1) {
